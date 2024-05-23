@@ -1,0 +1,205 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente más moderna */
+    background-color: #f8f9fa; /* Un fondo general más claro */
+    scroll-behavior: smooth;
+}
+
+.navbar {
+    background-color: #064380; /* Color de fondo oscuro */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.nav-logo img {
+    height: 60px; /* Altura del logo ajustable */
+}
+
+.nav-links, .nav-contact {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links a, .nav-contact a {
+    color: #ffffff; /* Color amarillo para el texto */
+    padding: 10px 15px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.nav-links a:hover, .nav-contact a:hover {
+    color: #ffffff; /* Color blanco para hover */
+    border-bottom: 2px solid #f0b909; /* Subrayado al hacer hover */
+}
+
+.nav-contact span {
+    color: #ffffff; /* Color amarillo para la barra vertical */
+    margin: 0 10px;
+    font-size: 24px; /* Tamaño de la barra vertical */
+}
+
+/* Ajuste para que la barra de navegación se vea bien en dispositivos móviles */
+@media (max-width: 768px) {
+    .nav-contact {
+        display: none; /* Esconde el número de contacto en pantallas pequeñas */
+    }
+}
+
+.contenido img {
+    width: 100%;
+    height: auto;
+}
+
+.services {
+    background-color: #ffffff; /* Fondo blanco para resaltar la sección de servicios */
+    padding: 60px 10px; /* Más padding para dar un mejor aspecto */
+    text-align: center;
+}
+
+.services h2 {
+    color: #064380; /* Un azul oscuro para el título */
+    font-size: 2.5em; /* Un tamaño más grande para el título */
+    margin-bottom: 50px; /* Espacio antes de las tarjetas de servicios */
+}
+
+.services-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centrado para todas las resoluciones */
+    gap: 30px; /* Más espacio entre los servicios */
+}
+
+.service-card {
+    background: #ffffff;
+    border-radius: 20px; /* Bordes más redondeados */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1), 0 6px 20px rgba(0,0,0,0.1); /* Sombras más pronunciadas para un efecto 'elevado' */
+    width: calc(33.333% - 40px); /* Ajuste de ancho con el nuevo gap */
+    padding: 30px;
+    box-sizing: border-box;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Transición suave para hover */
+}
+
+.service-card:hover {
+    transform: translateY(-5px); /* Levanta la tarjeta ligeramente al pasar el ratón por encima */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2), 0 8px 20px rgba(0,0,0,0.15); /* Sombra más profunda al hacer hover */
+}
+
+.service-card h3 {
+    color: #064380; /* Un azul más suave para los subtítulos */
+    font-size: 1.8em; /* Tamaño más grande para los subtítulos */
+}
+
+.service-card p {
+    color: #4a4a4a; /* Gris oscuro para el texto para mejor lectura */
+    font-size: 1em; /* Tamaño estándar para la legibilidad */
+    line-height: 1.7; /* Más espacio entre líneas para la lectura */
+    text-align: left; /* Alineación a la izquierda para una lectura más natural */
+}
+
+/* Ajustes responsivos para diferentes tamaños de pantalla */
+@media (max-width: 992px) {
+    .service-card {
+        width: calc(50% - 40px); /* Ajuste para tablets y pantallas medianas */
+    }
+}
+
+@media (max-width: 576px) {
+    .service-card {
+        width: 100%; /* Una columna para teléfonos móviles */
+        margin-bottom: 30px; /* Más espacio entre tarjetas en pantallas pequeñas */
+    }
+}
+
+.google-maps {
+    text-align: center; /* Centra el texto del título */
+    padding: 40px 0; /* Espacio arriba y abajo del mapa */
+    background-color: #ecf0f1; /* Un fondo para diferenciar la sección del resto de la página */
+}
+
+.google-maps h2 {
+    color: #064380; /* Color para el título */
+    font-size: 2.5em; /* Tamaño del título */
+    margin-bottom: 20px; /* Espacio entre el título y el mapa */
+}
+
+.google-maps iframe {
+    border-radius: 8px; /* Bordes redondeados para el mapa */
+    width: 65%; /* Ancho del iframe ajustado al 80% del contenedor */
+    height: 450px; /* Altura fija para el iframe */
+    border: none; /* Sin borde para el iframe */
+    margin: 0 auto; /* Margen automático para centrar el iframe */
+    display: block; /* Display block para permitir el margen automático */
+}
+
+#contacto {
+    background-color: #ffffff; /* Fondo claro para el formulario */
+    padding: 40px;
+    max-width: 800px; /* Ancho máximo para contener el formulario */
+    margin: 60px auto; /* Centrado con margen superior e inferior */
+    border-radius: 8px; /* Bordes redondeados para el formulario */
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1); /* Sombra suave para dar profundidad */
+}
+
+#contacto h2 {
+    color: #064380; /* Color del texto coherente con la barra de navegación */
+    margin-bottom: 20px;
+    font-size: 2em; /* Tamaño del título */
+}
+
+#contacto form {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dos columnas para el formulario */
+    grid-gap: 20px;
+    padding: 20px;
+}
+
+#contacto form input,
+#contacto form select,
+#contacto form textarea {
+    width: 100%; /* Ancho completo para aprovechar el espacio de la cuadrícula */
+    padding: 12px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc; /* Borde sutil */
+    border-radius: 4px; /* Bordes ligeramente redondeados para los campos de entrada */
+    font-size: 1em; /* Tamaño de fuente adecuado */
+}
+
+#contacto form textarea {
+    height: 120px; /* Altura fija para el área de texto */
+    grid-column: 1 / -1; /* El área de texto abarca ambas columnas */
+}
+
+#contacto form button {
+    width: auto; /* Ancho auto para adaptarse al contenido */
+    padding: 10px 30px;
+    background-color: #064380; /* Fondo azul oscuro para el botón */
+    color: white; /* Texto blanco para el botón */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Transición suave para el color de fondo */
+    grid-column: 1 / -1; /* El botón abarca ambas columnas */
+    margin: auto; /* Centrado horizontalmente */
+}
+
+#contacto form button:hover {
+    background-color: #064380; /* Cambio de color al pasar el ratón */
+}
+
+/* Ajustes responsivos para formularios en dispositivos más pequeños */
+@media (max-width: 768px) {
+    #contacto form {
+        grid-template-columns: 1fr; /* Una sola columna en pantallas pequeñas */
+    }
+}

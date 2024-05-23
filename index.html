@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Página Web</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="navbar-container">
+        <a href="#inicio" class="nav-logo">
+            <img src="./img/logo.png" alt="Logo">
+        </a>
+        <div class="nav-links">
+            <a href="#servicios">Servicios</a>
+            <a href="#baterias">Baterías</a>
+            <a href="#ubicacion">Dónde estamos</a>
+            <a href="#contacto">Contacto</a>
+        </div>
+        <div class="nav-contact">
+            <span>|</span>
+            <a href="tel:+34937156744">📞(+34) 937 15 67 44</a>
+        </div>
+    </div>
+</nav>
+
+<div class="contenido" id="inicio">
+    <img src="./img/fondo.png" alt="Imagen Principal">
+</div>
+
+<div class="video-container">
+    <video autoplay muted loop id="bg-video">
+        <source src="./vid/MyVideo.mp4" type="video/mp4">
+    </video>
+</div>
+
+<section class="services" id="servicios">
+    <h2>Descubre Nuestros Servicios</h2>
+    <div class="services-grid">
+        <div class="service-card">
+            <h3>Diagnóstico y Reparación Mecánica</h3>
+            <p>¿Problemas con tu patinete? Desde ajustes de frenos hasta el cambio de neumáticos, te garantizamos una solución rápida y eficaz.</p>
+        </div>
+        <div class="service-card">
+            <h3>Servicios de Electrónica</h3>
+            <p>Cuando tu patinete falla en lo electrónico, es tiempo de expertos. Reprogramaciones, solución a fallos de arranque o iluminación, ¡lo tenemos cubierto!</p>
+        </div>
+        <div class="service-card">
+            <h3>Mantenimiento y Reparación de Baterías</h3>
+            <p>Maximiza la potencia y la autonomía de tu patinete. Ya sea un reemplazo o una mejora de batería, nuestros especialistas en energía aseguran que siempre llegarás a tu destino.</p>
+        </div>
+        <div class="service-card">
+            <h3>Mantenimiento Preventivo</h3>
+            <p>Evita sorpresas con nuestro mantenimiento preventivo. Asegúrate de que tu patinete siempre esté en condiciones óptimas con nuestro servicio integral.</p>
+        </div>
+        <div class="service-card">
+            <h3>Venta de Repuestos y Accesorios</h3>
+            <p>Personaliza y mejora tu patinete con nuestra selecta gama de accesorios y repuestos de la más alta calidad. Encuentra todo lo que necesitas en un solo lugar.</p>
+        </div>
+        <div class="service-card">
+            <h3>Asesoramiento y Venta de Patinetes</h3>
+            <p>¿Buscas renovar tu patinete? Ofrecemos las últimas innovaciones y te asesoramos para elegir el mejor modelo según tus necesidades. ¡Ven y descubre tu próximo patinete con nosotros!</p>
+        </div>
+    </div>
+</section>
+
+<div class="google-maps" id="ubicacion">
+    <h2>¿Donde Estamos?</h2>
+    </br>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2983.428838704371!2d2.2875961755454406!3d41.60323748257946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4c7784e0cdc47%3A0xc59e8c3ac625abf5!2sEcoglide!5e0!3m2!1ses!2ses!4v1709760339271!5m2!1ses!2ses" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+
+<section id="contacto">
+    <h2>Contacto</h2>
+    <form action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="ab98f1a2-4ae8-489a-bede-d8ea368eba1b">
+        <input type="text" name="name" placeholder="Nombre" required>
+        <input type="text" name="apellido" placeholder="Apellido" required>
+        <input type="email" name="email" placeholder="Correo Electrónico" required>
+        <input type="tel" name="telefono" placeholder="Teléfono" required>
+        <select name="comunidad_autonoma" required>
+            <option value="Andalucía">Andalucía</option>
+            <option value="Aragón">Aragón</option>
+            <option value="Asturias">Asturias</option>
+            <option value="Baleares">Baleares</option>
+            <option value="Canarias">Canarias</option>
+            <option value="Cantabria">Cantabria</option>
+            <option value="Castilla-La Mancha">Castilla-La Mancha</option>
+            <option value="Castilla y León">Castilla y León</option>
+            <option value="Cataluña">Cataluña</option>
+            <option value="Extremadura">Extremadura</option>
+            <option value="Galicia">Galicia</option>
+            <option value="Madrid">Madrid</option>
+            <option value="Murcia">Murcia</option>
+            <option value="Navarra">Navarra</option>
+            <option value="País Vasco">País Vasco</option>
+            <option value="La Rioja">La Rioja</option>
+            <option value="Valencia">Valencia</option>
+            <option value="Ceuta">Ceuta</option>
+            <option value="Melilla">Melilla</option>
+        </select>
+        
+        <textarea name="message" placeholder="Cuéntanos que te sucede... (hasta 750 caracteres)" maxlength="750" required></textarea>
+        <button type="submit">Enviar</button>
+    </form>
+</section>
+
+<script>
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        // Obtener los datos del formulario
+        var formData = new FormData(this);
+
+
+        // Enviar los datos del formulario usando `fetch`
+        fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            body: formData,
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Puedes manejar la respuesta aquí
+            console.log(data);
+            // Limpia el formulario
+            this.reset();
+            // Redirige al usuario
+            setTimeout(function() {
+                window.location.href = 'index.html'; // Reemplaza con tu URL
+            }, 3000);
+        })
+        .catch(error => {
+            // Maneja los errores aquí
+            console.error(error);
+        });
+    });
+</script>
+
+</body>
+</html>
