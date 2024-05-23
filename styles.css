@@ -1,28 +1,33 @@
 body, html {
     margin: 0;
     padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente más moderna */
-    background-color: #f8f9fa; /* Un fondo general más claro */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
     scroll-behavior: smooth;
 }
 
 .navbar {
-    background-color: #064380; /* Color de fondo oscuro */
+    background-color: #064380;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    transition: background-color 0.3s ease;
 }
 
 .navbar-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px;
+    width: 100%;
 }
 
 .nav-logo img {
-    height: 60px; /* Altura del logo ajustable */
+    height: 60px;
 }
 
 .nav-links, .nav-contact {
@@ -31,135 +36,248 @@ body, html {
 }
 
 .nav-links a, .nav-contact a {
-    color: #ffffff; /* Color amarillo para el texto */
+    color: #ffffff;
     padding: 10px 15px;
+    margin-right: 15px;
     text-decoration: none;
     text-transform: uppercase;
     font-weight: bold;
+    transition: color 0.3s ease;
 }
 
 .nav-links a:hover, .nav-contact a:hover {
-    color: #ffffff; /* Color blanco para hover */
-    border-bottom: 2px solid #f0b909; /* Subrayado al hacer hover */
+    color: #f0b909;
 }
 
 .nav-contact span {
-    color: #ffffff; /* Color amarillo para la barra vertical */
+    color: #ffffff;
     margin: 0 10px;
-    font-size: 24px; /* Tamaño de la barra vertical */
+    font-size: 24px;
+}
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    margin-right: 7.5%;
+}
+
+.menu-toggle .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #ffffff;
+    margin: 4px 0;
+    transition: all 0.3s ease;
+}
+
+.menu-toggle.open .bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.menu-toggle.open .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.open .bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+.mobile-nav {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 250px;
+    height: 100%;
+    background-color: #064380;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 60px;
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(100%);
+}
+
+.mobile-nav.open {
+    display: flex;
+    transform: translateX(0);
+}
+
+.mobile-nav a {
+    color: #ffffff;
+    padding: 15px 20px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.mobile-nav a:hover {
+    background-color: #f0b909;
 }
 
 /* Ajuste para que la barra de navegación se vea bien en dispositivos móviles */
 @media (max-width: 768px) {
-    .nav-contact {
-        display: none; /* Esconde el número de contacto en pantallas pequeñas */
+    .nav-links, .nav-contact {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: flex;
     }
 }
 
 .contenido img {
     width: 100%;
     height: auto;
+    animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 .services {
-    background-color: #ffffff; /* Fondo blanco para resaltar la sección de servicios */
-    padding: 60px 10px; /* Más padding para dar un mejor aspecto */
+    background-color: #ffffff;
+    padding: 60px 10px;
     text-align: center;
+    animation: slideInUp 2s ease-in-out;
+}
+
+@keyframes slideInUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 .services h2 {
-    color: #064380; /* Un azul oscuro para el título */
-    font-size: 2.5em; /* Un tamaño más grande para el título */
-    margin-bottom: 50px; /* Espacio antes de las tarjetas de servicios */
+    color: #064380;
+    font-size: 2.5em;
+    margin-bottom: 50px;
 }
 
 .services-grid {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center; /* Centrado para todas las resoluciones */
-    gap: 30px; /* Más espacio entre los servicios */
+    justify-content: center;
+    gap: 30px;
 }
 
 .service-card {
     background: #ffffff;
-    border-radius: 20px; /* Bordes más redondeados */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1), 0 6px 20px rgba(0,0,0,0.1); /* Sombras más pronunciadas para un efecto 'elevado' */
-    width: calc(33.333% - 40px); /* Ajuste de ancho con el nuevo gap */
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1), 0 6px 20px rgba(0,0,0,0.1);
+    width: calc(33.333% - 40px);
     padding: 30px;
     box-sizing: border-box;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Transición suave para hover */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 .service-card:hover {
-    transform: translateY(-5px); /* Levanta la tarjeta ligeramente al pasar el ratón por encima */
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2), 0 8px 20px rgba(0,0,0,0.15); /* Sombra más profunda al hacer hover */
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2), 0 8px 20px rgba(0,0,0,0.15);
 }
 
 .service-card h3 {
-    color: #064380; /* Un azul más suave para los subtítulos */
-    font-size: 1.8em; /* Tamaño más grande para los subtítulos */
+    color: #064380;
+    font-size: 1.8em;
 }
 
 .service-card p {
-    color: #4a4a4a; /* Gris oscuro para el texto para mejor lectura */
-    font-size: 1em; /* Tamaño estándar para la legibilidad */
-    line-height: 1.7; /* Más espacio entre líneas para la lectura */
-    text-align: left; /* Alineación a la izquierda para una lectura más natural */
+    color: #4a4a4a;
+    font-size: 1em;
+    line-height: 1.7;
+    text-align: left;
 }
 
 /* Ajustes responsivos para diferentes tamaños de pantalla */
 @media (max-width: 992px) {
     .service-card {
-        width: calc(50% - 40px); /* Ajuste para tablets y pantallas medianas */
+        width: calc(50% - 40px);
     }
 }
 
 @media (max-width: 576px) {
     .service-card {
-        width: 100%; /* Una columna para teléfonos móviles */
-        margin-bottom: 30px; /* Más espacio entre tarjetas en pantallas pequeñas */
+        width: 100%;
+        margin-bottom: 30px;
     }
 }
 
 .google-maps {
-    text-align: center; /* Centra el texto del título */
-    padding: 40px 0; /* Espacio arriba y abajo del mapa */
-    background-color: #ecf0f1; /* Un fondo para diferenciar la sección del resto de la página */
+    text-align: center;
+    padding: 40px 0;
+    background-color: #ecf0f1;
+    animation: slideInRight 2s ease-in-out;
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }
 
 .google-maps h2 {
-    color: #064380; /* Color para el título */
-    font-size: 2.5em; /* Tamaño del título */
-    margin-bottom: 20px; /* Espacio entre el título y el mapa */
+    color: #064380;
+    font-size: 2.5em;
+    margin-bottom: 20px;
 }
 
 .google-maps iframe {
-    border-radius: 8px; /* Bordes redondeados para el mapa */
-    width: 65%; /* Ancho del iframe ajustado al 80% del contenedor */
-    height: 450px; /* Altura fija para el iframe */
-    border: none; /* Sin borde para el iframe */
-    margin: 0 auto; /* Margen automático para centrar el iframe */
-    display: block; /* Display block para permitir el margen automático */
+    border-radius: 8px;
+    width: 65%;
+    height: 450px;
+    border: none;
+    margin: 0 auto;
+    display: block;
 }
 
 #contacto {
-    background-color: #ffffff; /* Fondo claro para el formulario */
+    background-color: #ffffff;
     padding: 40px;
-    max-width: 800px; /* Ancho máximo para contener el formulario */
-    margin: 60px auto; /* Centrado con margen superior e inferior */
-    border-radius: 8px; /* Bordes redondeados para el formulario */
-    box-shadow: 0 8px 16px rgba(0,0,0,0.1); /* Sombra suave para dar profundidad */
+    max-width: 800px;
+    margin: 60px auto;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    animation: slideInLeft 2s ease-in-out;
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }
 
 #contacto h2 {
-    color: #064380; /* Color del texto coherente con la barra de navegación */
+    color: #064380;
     margin-bottom: 20px;
-    font-size: 2em; /* Tamaño del título */
+    font-size: 2em;
 }
 
 #contacto form {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Dos columnas para el formulario */
+    grid-template-columns: 1fr 1fr;
     grid-gap: 20px;
     padding: 20px;
 }
@@ -167,39 +285,39 @@ body, html {
 #contacto form input,
 #contacto form select,
 #contacto form textarea {
-    width: 100%; /* Ancho completo para aprovechar el espacio de la cuadrícula */
+    width: 100%;
     padding: 12px;
     margin-bottom: 16px;
-    border: 1px solid #ccc; /* Borde sutil */
-    border-radius: 4px; /* Bordes ligeramente redondeados para los campos de entrada */
-    font-size: 1em; /* Tamaño de fuente adecuado */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
 }
 
 #contacto form textarea {
-    height: 120px; /* Altura fija para el área de texto */
-    grid-column: 1 / -1; /* El área de texto abarca ambas columnas */
+    height: 120px;
+    grid-column: 1 / -1;
 }
 
 #contacto form button {
-    width: auto; /* Ancho auto para adaptarse al contenido */
+    width: auto;
     padding: 10px 30px;
-    background-color: #064380; /* Fondo azul oscuro para el botón */
-    color: white; /* Texto blanco para el botón */
+    background-color: #064380;
+    color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s; /* Transición suave para el color de fondo */
-    grid-column: 1 / -1; /* El botón abarca ambas columnas */
-    margin: auto; /* Centrado horizontalmente */
+    transition: background-color 0.3s;
+    grid-column: 1 / -1;
+    margin: auto;
 }
 
 #contacto form button:hover {
-    background-color: #064380; /* Cambio de color al pasar el ratón */
+    background-color: #04375c;
 }
 
 /* Ajustes responsivos para formularios en dispositivos más pequeños */
 @media (max-width: 768px) {
     #contacto form {
-        grid-template-columns: 1fr; /* Una sola columna en pantallas pequeñas */
+        grid-template-columns: 1fr;
     }
 }

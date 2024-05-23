@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Página Web</title>
+    <title>ElectricPowa Official</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -23,8 +23,21 @@
             <span>|</span>
             <a href="tel:+34937156744">📞(+34) 937 15 67 44</a>
         </div>
+        <div class="menu-toggle">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
     </div>
 </nav>
+
+<div class="mobile-nav">
+    <a href="#servicios">Servicios</a>
+    <a href="#baterias">Baterías</a>
+    <a href="#ubicacion">Dónde estamos</a>
+    <a href="#contacto">Contacto</a>
+    <a href="tel:+34937156744">📞(+34) 937 15 67 44</a>
+</div>
 
 <div class="contenido" id="inicio">
     <img src="./img/fondo.png" alt="Imagen Principal">
@@ -67,14 +80,13 @@
 </section>
 
 <div class="google-maps" id="ubicacion">
-    <h2>¿Donde Estamos?</h2>
-    </br>
+    <h2>¿Dónde Estamos?</h2>
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2983.428838704371!2d2.2875961755454406!3d41.60323748257946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4c7784e0cdc47%3A0xc59e8c3ac625abf5!2sEcoglide!5e0!3m2!1ses!2ses!4v1709760339271!5m2!1ses!2ses" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </div>
 
 <section id="contacto">
     <h2>Contacto</h2>
-    <form action="https://api.web3forms.com/submit" method="POST">
+    <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
         <input type="hidden" name="access_key" value="ab98f1a2-4ae8-489a-bede-d8ea368eba1b">
         <input type="text" name="name" placeholder="Nombre" required>
         <input type="text" name="apellido" placeholder="Apellido" required>
@@ -102,18 +114,27 @@
             <option value="Melilla">Melilla</option>
         </select>
         
-        <textarea name="message" placeholder="Cuéntanos que te sucede... (hasta 750 caracteres)" maxlength="750" required></textarea>
+        <textarea name="message" placeholder="Cuéntanos qué te sucede... (hasta 750 caracteres)" maxlength="750" required></textarea>
         <button type="submit">Enviar</button>
     </form>
 </section>
 
 <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const menuToggle = document.querySelector('.menu-toggle');
+        const mobileNav = document.querySelector('.mobile-nav');
+
+        menuToggle.addEventListener('click', function() {
+            mobileNav.classList.toggle('open');
+            menuToggle.classList.toggle('open');
+        });
+    });
+
     document.getElementById('contact-form').addEventListener('submit', function(event) {
         event.preventDefault();
         
         // Obtener los datos del formulario
         var formData = new FormData(this);
-
 
         // Enviar los datos del formulario usando `fetch`
         fetch('https://api.web3forms.com/submit', {
