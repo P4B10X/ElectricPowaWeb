@@ -1,3 +1,4 @@
+/* Estilos generales */
 body, html {
     margin: 0;
     padding: 0;
@@ -6,6 +7,7 @@ body, html {
     scroll-behavior: smooth;
 }
 
+/* Barra de navegación */
 .navbar {
     background-color: #064380;
     position: fixed;
@@ -65,9 +67,9 @@ body, html {
 .menu-toggle .bar {
     width: 25px;
     height: 3px;
-    background-color: #ffffff;
+    background-color: #4030edcc;
     margin: 4px 0;
-    transition: all 0.3s ease;
+    transition: all 1s ease;
 }
 
 .menu-toggle.open .bar:nth-child(1) {
@@ -79,7 +81,7 @@ body, html {
 }
 
 .menu-toggle.open .bar:nth-child(3) {
-    transform: translateY(-7px) rotate(-45deg);
+    transform: translateY(-13px) rotate(-45deg);
 }
 
 .mobile-nav {
@@ -117,7 +119,7 @@ body, html {
     background-color: #f0b909;
 }
 
-/* Ajuste para que la barra de navegación se vea bien en dispositivos móviles */
+/* Ajustes de navegación para dispositivos móviles */
 @media (max-width: 768px) {
     .nav-links, .nav-contact {
         display: none;
@@ -128,10 +130,23 @@ body, html {
     }
 }
 
+/* Contenido */
 .contenido img {
     width: 100%;
     height: auto;
     animation: fadeIn 2s ease-in-out;
+}
+
+@media (max-width: 768px) {
+    /* Ocultar la imagen de fondo en dispositivos móviles */
+    .contenido img {
+        display: none;
+    }
+
+    /* Mostrar el logo en dispositivos móviles */
+    .nav-logo img {
+        display: block;
+    }
 }
 
 @keyframes fadeIn {
@@ -143,6 +158,7 @@ body, html {
     }
 }
 
+/* Sección de servicios */
 .services {
     background-color: #ffffff;
     padding: 60px 10px;
@@ -177,7 +193,7 @@ body, html {
 .service-card {
     background: #ffffff;
     border-radius: 20px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1), 0 6px 20px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
     width: calc(33.333% - 40px);
     padding: 30px;
     box-sizing: border-box;
@@ -186,7 +202,7 @@ body, html {
 
 .service-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2), 0 8px 20px rgba(0,0,0,0.15);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 .service-card h3 {
@@ -215,6 +231,7 @@ body, html {
     }
 }
 
+/* Sección de mapas de Google */
 .google-maps {
     text-align: center;
     padding: 40px 0;
@@ -248,13 +265,14 @@ body, html {
     display: block;
 }
 
+/* Sección de contacto */
 #contacto {
     background-color: #ffffff;
     padding: 40px;
     max-width: 800px;
     margin: 60px auto;
     border-radius: 8px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
     animation: slideInLeft 2s ease-in-out;
 }
 
