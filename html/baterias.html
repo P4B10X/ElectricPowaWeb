@@ -4,19 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>⚡ElectricPowa⚡</title>
-    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/baterias.css">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 
 </head>
 <body>
     <nav>
-        <a href="index.html" class="logo">
+        <a href="../index.html" class="logo">
             <img src="../img/logo.png" alt="Logo">
         </a>
         <ul class="nav-items">
             <li><a href="../index.html">Inicio</a></li>
             <li><a href="../html/baterias.html">Baterías</a></li>
-            <li><a href="../html/presupuesto.html">Presupuestos</a></li>
+            <li><a href="../html/presupuesto.html">Información</a></li>
         </ul>
         <div class="social">
             <a href="https://www.instagram.com/electricpowa/">
@@ -26,7 +26,126 @@
     </nav>
     <section class="content">
         <h1>BATERÍAS</h1>
-        <!-- Contenido específico de la página de baterías -->
+        <div class="battery-panel">
+            <div class="battery-dropdown">
+                <button class="dropbtn">36V</button>
+                <div class="dropdown-content">
+                    <a href="#">10ah</a>
+                    <a href="#">15ah</a>
+                    <a href="#">20ah</a>
+                    <a href="#">25ah</a>
+                    <a href="#">30ah</a>
+                </div>
+            </div>
+            <div class="battery-dropdown">
+                <button class="dropbtn">48V</button>
+                <div class="dropdown-content">
+                    <a href="#">10ah</a>
+                    <a href="#">15ah</a>
+                    <a href="#">20ah</a>
+                    <a href="#">25ah</a>
+                    <a href="#">30ah</a>
+                </div>
+            </div>
+            <div class="battery-dropdown">
+                <button class="dropbtn">60V</button>
+                <div class="dropdown-content">
+                    <a href="#">20ah</a>
+                    <a href="#">25ah</a>
+                    <a href="#">30ah</a>
+                    <a href="#">35ah</a>
+                    <a href="#">40ah</a>
+                    <a href="#">45ah</a>
+                    <a href="#">50ah</a>
+                </div>
+            </div>
+            <div class="battery-dropdown">
+                <button class="dropbtn">72V</button>
+                <div class="dropdown-content">
+                    <a href="#">20ah</a>
+                    <a href="#">25ah</a>
+                    <a href="#">30ah</a>
+                    <a href="#">35ah</a>
+                    <a href="#">40ah</a>
+                    <a href="#">45ah</a>
+                    <a href="#">50ah</a>
+                </div>
+            </div>
+        </div>
     </section>
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Solicitud de Batería</h2>
+            <form id="request-form" action="https://api.web3forms.com/submit" method="POST">
+                <input type="hidden" name="access_key" value="2ab50327-341d-4dcb-8245-7a7a47b36fc6">
+                <label for="name">Nombre y Apellido:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="phone">Teléfono:</label>
+                <input type="tel" id="phone" name="phone" required>
+                <label for="address">Dirección:</label>
+                <input type="text" id="address" name="address" required>
+                <label for="postal-code">Código Postal:</label>
+                <input type="text" id="postal-code" name="postal-code" required>
+                <label for="province">Provincia:</label>
+                <input type="text" id="province" name="province" required>
+                <label for="city">Ciudad:</label>
+                <input type="text" id="city" name="city" required>
+                <label for="message">Mensaje:</label>
+                <textarea id="message" name="message" required></textarea>
+                <!-- hCaptcha Spam Protection -->
+                <div class="h-captcha" data-captcha="true"></div>
+                <button type="submit" id="send-btn">Enviar</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Dropdowns
+            const dropdowns = document.querySelectorAll('.battery-dropdown');
+            dropdowns.forEach(dropdown => {
+                const button = dropdown.querySelector('.dropbtn');
+                const content = dropdown.querySelector('.dropdown-content');
+                button.addEventListener('click', function() {
+                    content.classList.toggle('show');
+                });
+            });
+    
+            // Seleccionar batería y capacidad
+            const capacityLinks = document.querySelectorAll('.dropdown-content a');
+            capacityLinks.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const selectedBattery = link.closest('.battery-dropdown').querySelector('.dropbtn').textContent.trim();
+                    const selectedCapacity = link.textContent.trim();
+                    const message = `Hola, estoy interesado en una batería de ${selectedBattery} con una capacidad de ${selectedCapacity}`;
+                    document.getElementById('message').value = message;
+                    document.getElementById('modal').style.display = 'block';
+                });
+            });
+    
+            // Modal
+            const closeModalButtons = document.querySelectorAll('.close');
+            closeModalButtons.forEach(button => {
+                button.addEventListener('click', closeModal);
+            });
+    
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    closeModal();
+                }
+            };
+    
+            function closeModal() {
+                document.getElementById('modal').style.display = 'none';
+            }
+        });
+    </script>
+    
+    
+    <script src="../js/main.js"></script>
 </body>
 </html>

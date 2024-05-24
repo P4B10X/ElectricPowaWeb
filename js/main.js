@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const text = "⚡ PROXIMAMENTE, STAY TUNED 😎";
+    const text = "⚡ PROXIMAMENTE, STAY TUNED ⚡";
     let index = 0;
     const speed = 100; // Velocidad de la animación en milisegundos
 

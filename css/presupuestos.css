@@ -1,40 +1,77 @@
+/* css/main.css */
+
 body, html {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
+    height: 100%;
+    overflow: hidden; /* Evita el desplazamiento vertical */
 }
 
 nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #333;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo translúcido */
+    backdrop-filter: blur(10px); /* Desenfoque del fondo */
     padding: 10px 20px;
+    z-index: 1000; /* Asegura que la navbar esté encima del contenido */
+    display: grid; /* Cambiar a grid layout */
+    grid-template-columns: 1fr auto 1fr; /* Columnas para centrar los elementos */
+    align-items: center;
 }
 
-nav .logo img {
-    height: 50px;
-}
-
-nav .nav-items {
-    list-style: none;
+.nav-items {
     display: flex;
+    justify-content: center; /* Centrar las opciones de navegación */
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
-nav .nav-items li {
+.nav-items li {
     margin-left: 20px;
 }
 
-nav .nav-items a {
+.nav-items a {
     color: white;
     text-decoration: none;
     font-size: 16px;
 }
 
-.content {
-    padding: 20px;
+.logo {
+    justify-self: center; /* Centrar el logo */
 }
 
-h1 {
-    color: #333;
+.logo img {
+    height: auto; /* Ajustar la altura automáticamente */
+    max-height: 50px; /* Limitar la altura máxima del logo */
+}
+
+.social {
+    justify-self: center; /* Centrar la sección social */
+}
+
+.social img {
+    height: 30px;
+    width: auto; /* Ajustar el ancho automáticamente */
+}
+
+.hero {
+    position: relative;
+    height: 100vh;
+    background: url('../img/fondo.png') no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
 }
