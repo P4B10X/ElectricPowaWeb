@@ -86,10 +86,13 @@ nav {
 .hero .hero-text h1 {
     font-size: 60px;
     margin: 0;
-    font-family: "Orbitron", sans-serif; /* Fuente Orbitron */
+    font-family: "Honk", system-ui;
     font-optical-sizing: auto;
     font-weight: 700; /* Peso de la fuente */
     font-style: normal;
+    font-variation-settings:
+    "MORF" 15,
+    "SHLN" 50;
     -webkit-text-stroke: 2px #800080; /* Borde morado */
     text-shadow: 0 0 5px rgba(255, 255, 255, 0.5); /* Difuminado del texto */
     animation: neonGlow 1.5s infinite alternate; /* Animación de brillo */
