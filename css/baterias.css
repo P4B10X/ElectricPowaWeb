@@ -41,6 +41,10 @@ nav {
     font-size: 16px;
 }
 
+.nav-items li:hover{
+    transform: scale(1.2);
+}
+
 .logo {
     justify-self: center; /* Centrar el logo */
 }
@@ -50,6 +54,10 @@ nav {
     max-height: 50px; /* Limitar la altura máxima del logo */
 }
 
+.logo img:hover{
+    transform: scale(1.2);
+}
+
 .social {
     justify-self: center; /* Centrar la sección social */
 }
@@ -57,6 +65,10 @@ nav {
 .social img {
     height: 30px;
     width: auto; /* Ajustar el ancho automáticamente */
+}
+
+.social img:hover {
+    transform: scale(1.2); /* Aumentar tamaño al pasar el cursor */
 }
 
 .content {

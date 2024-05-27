@@ -1,3 +1,5 @@
+/* CSS/presupuestos.css */
+
 /* css/main.css */
 
 body, html {
@@ -6,6 +8,7 @@ body, html {
     font-family: 'Arial', sans-serif;
     height: 100%;
     overflow: hidden; /* Evita el desplazamiento vertical */
+    background-color: #333; /* Cambiar el color de fondo a gris oscuro */
 }
 
 nav {
@@ -40,6 +43,10 @@ nav {
     font-size: 16px;
 }
 
+.nav-items li:hover{
+    transform: scale(1.2);
+}
+
 .logo {
     justify-self: center; /* Centrar el logo */
 }
@@ -47,6 +54,10 @@ nav {
 .logo img {
     height: auto; /* Ajustar la altura automáticamente */
     max-height: 50px; /* Limitar la altura máxima del logo */
+}
+
+.logo img:hover{
+    transform: scale(1.2);
 }
 
 .social {
@@ -58,20 +69,65 @@ nav {
     width: auto; /* Ajustar el ancho automáticamente */
 }
 
-.hero {
-    position: relative;
-    height: 100vh;
-    background: url('../img/fondo.png') no-repeat center center/cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.social img:hover {
+    transform: scale(1.2); /* Aumentar tamaño al pasar el cursor */
 }
 
-.hero .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
+/* Estilos para el contenido */
+.content {
+    padding: 50px 20px; /* Espaciado en la parte superior e inferior */
+}
+
+.grid-container {
+    display: flex; /* Cambiar a flexbox */
+    flex-wrap: wrap; /* Permitir que los elementos se envuelvan si no caben en una sola línea */
+    justify-content: space-between; /* Distribuir los elementos de forma equitativa */
+}
+
+.content-left,
+.content-right {
+    flex-basis: calc(50% - 10px); /* Establecer el ancho de cada elemento en un 50%, con un espacio de 10px entre ellos */
+    background-color: rgba(128, 0, 128, 0.777); /* Color de fondo morado */
+    color: white; /* Color del texto blanco */
+    padding: 20px; /* Espaciado interno */
+    border-radius: 10px; /* Borde redondeado */
+}
+
+
+/* Estilos para el carrusel */
+.gallery {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Estilos para el carrusel */
+.carousel {
+    position: relative;
+    overflow: hidden;
+    height: 100%; /* Establecer una altura para el carrusel en dispositivos móviles */
+}
+
+.carousel img {
+    width: 100%; /* Ancho completo en dispositivos móviles */
+    height: auto;
+}
+
+/* Animación para desplazar las imágenes */
+@keyframes slide {
+    0% { transform: translateY(0); } /* Comienza desde la primera imagen */
+    90% { transform: translateY(-600%); } /* Desplaza a través de todas las imágenes */
+    100% { transform: translateY(0); transition: transform 1s ease-in-out; } /* Vuelve a la primera imagen con una transición suave */
+}
+
+/* Aplicar la animación al carrusel en dispositivos móviles */
+/* Media query para dispositivos móviles */
+@media (max-width: 9999999999px) {
+    .content-left,
+    .content-right {
+        flex-basis: 100%; /* Establecer el ancho de cada elemento en un 100% en dispositivos móviles */
+        margin-bottom: 20px; /* Añadir un margen inferior entre los elementos en dispositivos móviles */
+    }
+    .carousel {
+        animation: slide 1000s linear infinite; /* Animación de desplazamiento vertical en dispositivos móviles */
+    }
 }
